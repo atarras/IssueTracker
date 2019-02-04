@@ -1,5 +1,5 @@
 package com.fdmgroup.test.uiAutomation.stepsDefinition;
 
-public class StepDefinition {
+public class Placeholder_StepDefinition {
 
 }

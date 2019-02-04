@@ -1,5 +1,5 @@
 package com.fdmgroup.app.view;
 
-public class View {
+public class Placeholder_View {
 
 }

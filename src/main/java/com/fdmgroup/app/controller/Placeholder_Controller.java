@@ -1,5 +1,5 @@
 package com.fdmgroup.app.controller;
 
-public class Controller {
+public class Placeholder_Controller {
 
 }

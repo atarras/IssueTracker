@@ -1,5 +1,5 @@
 package com.fdmgroup.app.model;
 
-public class User {
+public class Placeholder_User {
 
 }

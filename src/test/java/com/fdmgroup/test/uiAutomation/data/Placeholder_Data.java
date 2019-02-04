@@ -1,5 +1,5 @@
 package com.fdmgroup.test.uiAutomation.data;
 
-public class Data {
+public class Placeholder_Data {
 
 }

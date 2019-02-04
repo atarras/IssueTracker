@@ -1,5 +1,5 @@
 package com.fdmgroup.app.dao;
 
-public class DAO {
+public class Placeholder_DAO {
 
 }
