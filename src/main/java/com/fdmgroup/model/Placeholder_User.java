@@ -1,4 +1,4 @@
-package com.fdmgroup.app.model;
+package com.fdmgroup.model;
 
 public class Placeholder_User {
 

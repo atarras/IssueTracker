@@ -1,4 +1,4 @@
-package com.fdmgroup.app.view;
+package com.fdmgroup.view;
 
 public class Placeholder_View {
 

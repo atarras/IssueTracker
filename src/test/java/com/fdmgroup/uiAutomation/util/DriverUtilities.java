@@ -1,4 +1,4 @@
-package com.fdmgroup.test.uiAutomation.util;
+package com.fdmgroup.uiAutomation.util;
 
 import java.io.File;
 import java.io.FileInputStream;

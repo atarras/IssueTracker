@@ -1,4 +1,4 @@
-package com.fdmgroup.app.dao;
+package com.fdmgroup.dao;
 
 public class Placeholder_DAO {
 

@@ -1,4 +1,4 @@
-package com.fdmgroup.app.controller;
+package com.fdmgroup.controller;
 
 public class Placeholder_Controller {
 

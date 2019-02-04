@@ -1,4 +1,4 @@
-package com.fdmgroup.test.unitTest;
+package com.fdmgroup.unitTest;
 
 public class Placeholder_JUnit {
 
