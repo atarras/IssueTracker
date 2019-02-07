@@ -21,6 +21,16 @@ public class Complaint {
 		this.subject = subject;
 		this.description = description;
 	}
+	
+	public Complaint(long userID, String department, String status, String subject, String description) {
+		super();
+		this.userID = userID;
+		this.department = department;
+		this.status = status;
+		this.subject = subject;
+		this.description = description;
+	}
+
 	public long getComplaintID() {
 		return complaintID;
 	}
@@ -57,6 +67,13 @@ public class Complaint {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "Complaint [complaintID=" + complaintID + ", userID=" + userID + ", department=" + department
+				+ ", status=" + status + ", subject=" + subject + ", description=" + description + "]";
+	}
+	
 	
 	
 }

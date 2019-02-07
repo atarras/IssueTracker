@@ -18,9 +18,9 @@ public class Customer extends User{
 		complaints.add(newComplaint);
 	}
 
-	public  List<Complaint> getComplaints(long userID) {
+	public  List<Complaint> getComplaints(String username) {
 		
-		 List<Complaint> usercomplaintList=dbo.getUserComplaints(userID);;
+		 List<Complaint> usercomplaintList=dbo.getUserComplaints(username);
 		return usercomplaintList;
 	}
 }
