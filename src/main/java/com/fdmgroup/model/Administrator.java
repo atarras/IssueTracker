@@ -1,8 +1,13 @@
 package com.fdmgroup.model;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import com.fdmgroup.dao.DBoperations;
 
 public class Administrator extends User {
+	
+	DBoperations dbo=new DBoperations();
 
 	public Administrator(long userID, String firstName, String lastName, String userName, String emailAddress,
 			String password) {
@@ -10,18 +15,20 @@ public class Administrator extends User {
 	}
 
 	public void setComplaintStatus(int statusNum, Status stat) {
-
+		
 	}
 
 	public void assignDepartment(int departmentNum, Department depart) {
-
+		
 	}
 
-	public ArrayList<Complaint> viewAllComplaints() {
-		return null;
+	public List<Complaint> viewAllComplaints() {
+		List<Complaint> complaintList = dbo.getAllComplaints();
+		return complaintList;
 	}
 
-	public ArrayList<Complaint> viewUnassignedComplaints() {
-		return null;
+	public List<Complaint> viewUnassignedComplaints() {
+		List<Complaint> UnassignedComplaintList =  dbo.getAllUnassignedComplaints();
+		return UnassignedComplaintList;
 	}
 }

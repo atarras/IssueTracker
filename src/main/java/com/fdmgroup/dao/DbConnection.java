@@ -31,11 +31,14 @@ public class DbConnection {
 
 		if (conn == null) {
 
-			try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-					java.sql.Statement st = conn.createStatement();) {
-				 String query = "Select * from USERS";
-				 ResultSet rs = st.executeQuery(query);
+			try  {
 				
+				conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				java.sql.Statement st = conn.createStatement();
+//				
+//				String query = "Select * from USERS";
+//				 ResultSet rs = st.executeQuery(query);
+//				
 //				 while (rs.next()) {
 //				 long id = rs.getInt("ID");
 //				 String fName = rs.getString("FIRSTNAME");
@@ -51,7 +54,7 @@ public class DbConnection {
 //				
 //				
 //				 System.out.println("Users selected from correctly");
-				
+//				
 				
 				
 			} catch (SQLException e1) {
