@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fdmgroup.model.Customer;
-import com.fdmgroup.model.Department;
-import com.fdmgroup.model.Status;
 import com.fdmgroup.model.Administrator;
 import com.fdmgroup.model.Complaint;
 import com.fdmgroup.model.User;

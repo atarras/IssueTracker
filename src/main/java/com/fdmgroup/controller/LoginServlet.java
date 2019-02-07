@@ -1,4 +1,4 @@
-package com.fdmgroup.view;
+package com.fdmgroup.controller;
 
 import java.io.IOException;
 

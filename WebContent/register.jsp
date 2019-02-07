@@ -4,19 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Issue Tracker - Registration Page</title>
+<link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body bgcolor="#D1CCD6">
 	<div style="margin-top:3%"></div>
 	<center>
-		<font size="8"> Register </font> 
-		<form action="index.html">
+		<font size="8"> Register </font>
+		
+		<h2 class="error">${errorMsg}</h2>
+		 
+		<form action="registration" method="post">
 		    <div class="regcontainer">
 				<label for="firstname"><b>First name:</b></label>
 				<input type="text" placeholder="First Name" name="fname" required>
 
 				<label for="lastname"><b>Last name:</b></label>
 				<input type="text" placeholder="Last Name" name="lname" required>
+				
+				<label for="username"><b>Username:</b></label>
+				<input type="text" placeholder="Username" name="username" required>
 				
 				<label for="email"><b>Email:</b></label>
 				<input type="text" placeholder="mail@example.com" name="email" required>
