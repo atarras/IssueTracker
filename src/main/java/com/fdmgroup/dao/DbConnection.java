@@ -35,26 +35,26 @@ public class DbConnection {
 				
 				conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				java.sql.Statement st = conn.createStatement();
-				
-				String query = "Select * from USERS";
-				 ResultSet rs = st.executeQuery(query);
-				
-				 while (rs.next()) {
-				 long id = rs.getInt("ID");
-				 String fName = rs.getString("FIRSTNAME");
-				 String lName = rs.getString("LASTNAME");
-				 String type = rs.getString("TYPE");
-				 String emailAddr = rs.getString("EMAIL");
-				 String userName = rs.getString("USERNAME");
-				 String pass = rs.getString("PASSWORD");
-				
-				 System.out.println(id + " " + fName + " " + lName + " " + type + " " +
-				 emailAddr + " " + userName + " " + pass);
-				 }
-				
-				
-				 System.out.println("Users selected from correctly");
-				
+//				
+//				String query = "Select * from USERS";
+//				 ResultSet rs = st.executeQuery(query);
+//				
+//				 while (rs.next()) {
+//				 long id = rs.getInt("ID");
+//				 String fName = rs.getString("FIRSTNAME");
+//				 String lName = rs.getString("LASTNAME");
+//				 String type = rs.getString("TYPE");
+//				 String emailAddr = rs.getString("EMAIL");
+//				 String userName = rs.getString("USERNAME");
+//				 String pass = rs.getString("PASSWORD");
+//				
+//				 System.out.println(id + " " + fName + " " + lName + " " + type + " " +
+//				 emailAddr + " " + userName + " " + pass);
+//				 }
+//				
+//				
+//				 System.out.println("Users selected from correctly");
+//				
 				
 				
 			} catch (SQLException e1) {
