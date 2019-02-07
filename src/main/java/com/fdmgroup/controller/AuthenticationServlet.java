@@ -28,7 +28,7 @@ public class AuthenticationServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setMaxInactiveInterval(300);
 			session.setAttribute("user", foundUser);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/customerHomepage.jsp");
 			rd.forward(request, response);
 		}
 		else {

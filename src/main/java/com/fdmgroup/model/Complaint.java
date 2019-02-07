@@ -30,6 +30,14 @@ public class Complaint {
 		this.subject = subject;
 		this.description = description;
 	}
+	
+	public Complaint(long userID, String status,String subject, String description) {
+		super();
+		this.userID = userID;
+		this.subject = subject;
+		this.status = status;
+		this.description = description;
+	}
 
 	public long getComplaintID() {
 		return complaintID;

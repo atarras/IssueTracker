@@ -7,7 +7,6 @@ import com.fdmgroup.dao.DBoperations;
 
 public class Customer extends User{
 	ArrayList<Complaint> complaints;
-	DBoperations dbo=new DBoperations();
 	
 	public Customer(long userID, String firstName, String lastName, String userName, String emailAddress, String password) {
 		super(userID, firstName, lastName, userName, emailAddress, password);
@@ -20,7 +19,7 @@ public class Customer extends User{
 
 	public  List<Complaint> getComplaints(String username) {
 		
-		 List<Complaint> usercomplaintList=dbo.getUserComplaints(username);
+		 List<Complaint> usercomplaintList=DBoperations.getUserComplaints(username);
 		return usercomplaintList;
 	}
 }

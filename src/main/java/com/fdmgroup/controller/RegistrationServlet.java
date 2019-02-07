@@ -40,6 +40,10 @@ public class RegistrationServlet extends HttpServlet {
 		}else {
 			User newUser = new User(firstName,lastName,username,email,password);
 			DBoperations.addUser(newUser);
+			
+			request.setAttribute("user", newUser);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/registerConfirmation.jsp");
+			rd.forward(request, response);
 		}
 		
 	}
