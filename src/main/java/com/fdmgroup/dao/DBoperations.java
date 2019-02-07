@@ -17,6 +17,40 @@ public class DBoperations {
 
 	static Statement smt = null;
 
+	public static void addUser(User user) {
+
+		DbConnection.connect();
+
+		try {
+			java.sql.Statement smt = DbConnection.getConn().createStatement();
+			String query = "insert into users(firstname,lastname,type,email,username,password) values('"  + user.getFirstName() + "','"
+					+ user.getLastName() + "','CUSTOMER','" + user.getEmailAddress() + "','" + user.getUserName()
+					+ "','" + user.getPassword() + "')";
+			smt.executeUpdate(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static void addComplaint(Complaint complaint) {
+
+		DbConnection.connect();
+
+		try {
+			java.sql.Statement smt = DbConnection.getConn().createStatement();
+			String query = "insert into complaints(department,status,subject,description,userid) values('" + complaint.getDepartment() + "','" + complaint.getStatus() + "','"
+					+ complaint.getSubject() + "','" + complaint.getDescription() + "'," + complaint.getUserID() + ")";
+					
+			smt.executeUpdate(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public static User getUser(long id) {
 
 		DbConnection.connect();
@@ -73,7 +107,7 @@ public class DBoperations {
 
 		return complaintsList;
 	}
-	
+
 	public static List<Complaint> getUserComplaints(long id) {
 
 		DbConnection.connect();
@@ -98,7 +132,7 @@ public class DBoperations {
 
 		return complaintsList;
 	}
-	
+
 	public static List<Complaint> getAllUnassignedComplaints() {
 
 		DbConnection.connect();
@@ -106,7 +140,7 @@ public class DBoperations {
 
 		try {
 			java.sql.Statement smt = DbConnection.getConn().createStatement();
-			String query = "Select * from complaints where department is null" ;
+			String query = "Select * from complaints where department is null";
 			ResultSet rs = smt.executeQuery(query);
 
 			while (rs.next()) {
@@ -123,6 +157,5 @@ public class DBoperations {
 
 		return complaintsList;
 	}
-
 
 }
