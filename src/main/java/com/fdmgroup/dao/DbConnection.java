@@ -14,6 +14,12 @@ public class DbConnection {
 
 	private static Connection conn = null;
 
+	
+	
+	public static Connection getConn() {
+		return conn;
+	}
+
 	public static void connect() {
 
 		try {
@@ -30,21 +36,21 @@ public class DbConnection {
 				 String query = "Select * from USERS";
 				 ResultSet rs = st.executeQuery(query);
 				
-				 while (rs.next()) {
-				 long id = rs.getInt("ID");
-				 String fName = rs.getString("FIRSTNAME");
-				 String lName = rs.getString("LASTNAME");
-				 String type = rs.getString("TYPE");
-				 String emailAddr = rs.getString("EMAIL");
-				 String userName = rs.getString("USERNAME");
-				 String pass = rs.getString("PASSWORD");
-				
-				 System.out.println(id + " " + fName + " " + lName + " " + type + " " +
-				 emailAddr + " " + userName + " " + pass);
-				 }
-				
-				
-				 System.out.println("Users selected from correctly");
+//				 while (rs.next()) {
+//				 long id = rs.getInt("ID");
+//				 String fName = rs.getString("FIRSTNAME");
+//				 String lName = rs.getString("LASTNAME");
+//				 String type = rs.getString("TYPE");
+//				 String emailAddr = rs.getString("EMAIL");
+//				 String userName = rs.getString("USERNAME");
+//				 String pass = rs.getString("PASSWORD");
+//				
+//				 System.out.println(id + " " + fName + " " + lName + " " + type + " " +
+//				 emailAddr + " " + userName + " " + pass);
+//				 }
+//				
+//				
+//				 System.out.println("Users selected from correctly");
 				
 				
 				

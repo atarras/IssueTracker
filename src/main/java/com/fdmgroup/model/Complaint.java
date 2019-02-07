@@ -4,10 +4,23 @@ public class Complaint {
 	
 	private long complaintID;
 	private long userID;
-	private Department department;
-	private Status status;
+	private String department;
+	private String status;
 	private String subject;
 	private String description;
+	
+	
+	
+	public Complaint(long complaintID, long userID,String department, String status, String subject,
+			String description) {
+		super();
+		this.complaintID = complaintID;
+		this.userID = userID;
+		this.department = department;
+		this.status = status;
+		this.subject = subject;
+		this.description = description;
+	}
 	public long getComplaintID() {
 		return complaintID;
 	}
@@ -20,16 +33,16 @@ public class Complaint {
 	public void setUserID(long userID) {
 		this.userID = userID;
 	}
-	public Department getDepartment() {
+	public String getDepartment() {
 		return department;
 	}
-	public void setDepartment(Department department) {
+	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public String getSubject() {
