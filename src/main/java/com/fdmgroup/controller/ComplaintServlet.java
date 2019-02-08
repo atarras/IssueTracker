@@ -17,7 +17,7 @@ import com.fdmgroup.model.User;
 /**
  * Servlet implementation class AuthenticationServlet
  */
-@WebServlet("/registration")
+@WebServlet("/submitComplaint")
 public class ComplaintServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,9 +33,7 @@ public class ComplaintServlet extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/complaintSubmissionConfirmation.jsp");
 		rd.forward(request, response);
-		
 	}
-
 }
 
 

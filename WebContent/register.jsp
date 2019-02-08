@@ -39,10 +39,9 @@
 					
 				<button type="submit">Register</button>
 		    </div>
-			
-		  <div class="bottomContainer">
-			<button type="button" id="regcancelbtn">Cancel</button>
-		  </div>
+		</form>
+		<form action="cancelRegistration" method="get" class="bottomContainer">
+			<button type="submit" id="regcancelbtn">Cancel</button>
 		</form>
 	</center>
 </body>

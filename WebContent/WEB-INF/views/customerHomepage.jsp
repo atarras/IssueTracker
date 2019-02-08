@@ -26,8 +26,8 @@
 		</div>
 	</div>
 	
-	<div>
-		<button type="button" id="newComplaintbtn" href="createComplaint.html">Create New Complaint</button>
+	<form action="complaint" method="get">
+		<button type="submit" id="newComplaintbtn" href="createComplaint.html">Create New Complaint</button>
 	</div>
 </body>
 </html>

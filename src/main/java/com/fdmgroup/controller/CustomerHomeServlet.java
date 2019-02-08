@@ -13,12 +13,12 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/complaint")
+public class CustomerHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/createComplaint.jsp");
 		rd.forward(request, response);
 	}
 }

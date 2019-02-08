@@ -24,7 +24,7 @@
 	<form action="home" method="get" class ="complaintSubmittedContainer">
 		<font size="6">Complaint Successfully submitted!</font>
 		<div style="margin-top:3%"></div>
-		<font size="4"> One of our administrators will handle your complaint blabla... <font>
+		<font size="4"> One of our administrators will handle your complaint... <font>
 		<button type="submit">Back to Homepage</button>
 	</form>
 	</center>
