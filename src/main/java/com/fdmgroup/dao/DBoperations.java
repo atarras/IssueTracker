@@ -38,7 +38,7 @@ public class DBoperations {
 
 		try {
 			java.sql.Statement smt = DbConnection.getConn().createStatement();
-			String query = "insert into complaints(department,status,subject,description,userid) values('" + complaint.getDepartment() + "','" + complaint.getStatus() + "','"
+			String query = "insert into complaints(status,subject,description,userid) values('" + complaint.getStatus() + "','"
 					+ complaint.getSubject() + "','" + complaint.getDescription() + "'," + complaint.getUserID() + ")";
 					
 			smt.executeUpdate(query);
