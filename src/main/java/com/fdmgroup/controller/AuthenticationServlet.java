@@ -1,7 +1,6 @@
 package com.fdmgroup.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fdmgroup.dao.DBoperations;
-import com.fdmgroup.model.Complaint;
 import com.fdmgroup.model.User;
 
 /**

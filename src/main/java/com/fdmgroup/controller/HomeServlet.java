@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.fdmgroup.dao.DBoperations;
 import com.fdmgroup.model.Administrator;
 import com.fdmgroup.model.Complaint;
-import com.fdmgroup.model.Customer;
 import com.fdmgroup.model.User;
 
 /**

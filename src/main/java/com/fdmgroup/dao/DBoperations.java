@@ -31,9 +31,12 @@ public class DBoperations {
 		}
 
 	}
-	
+	/**
+	 * Add complaint to database.
+	 * Front end needs to ensure "," is not passed in the description/subject.
+	 * @param complaint
+	 */
 	public static void addComplaint(Complaint complaint) {
-
 		DbConnection.connect();
 
 		try {

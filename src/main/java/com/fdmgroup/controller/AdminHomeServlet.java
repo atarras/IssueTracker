@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
-
 import com.fdmgroup.dao.DBoperations;
 import com.fdmgroup.model.Complaint;
 
