@@ -23,7 +23,6 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class UserTest {
@@ -42,7 +41,6 @@ public class UserTest {
 		System.out.println("Starting test");
 	}
 
-	@Ignore
 	@Test
 	public void test_InsertionIntoUsersTable() {
 		System.out.println("Values to add:");
@@ -66,7 +64,6 @@ public class UserTest {
 		assertEquals(newFirstName, userController.findByID(user.getUserID()).getFirstName());
 	}
 	
-	@Ignore
 	@Test
 	public void test_DeleteValuesInsertedInTesting() {
 		User firstAddedUser = userController.findByUsername(users.get(0).getUserName());
