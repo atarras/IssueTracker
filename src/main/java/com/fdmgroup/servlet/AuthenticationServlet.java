@@ -1,4 +1,4 @@
-package com.fdmgroup.controller;
+package com.fdmgroup.servlet;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fdmgroup.dao.DBoperations;
+import com.fdmgroup.controller.UserController;
 import com.fdmgroup.model.User;
 
 /**
@@ -19,11 +19,12 @@ import com.fdmgroup.model.User;
 @WebServlet("/processLogin")
 public class AuthenticationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserController userController = new UserController();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		User foundUser = DBoperations.getUser(username);
+		User foundUser = userController.findByUsername(username);
 		if (foundUser != null && foundUser.getPassword().equals(password)) {
 			HttpSession session = request.getSession();
 			session.setMaxInactiveInterval(300);
@@ -37,9 +38,7 @@ public class AuthenticationServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 		}
-		
 	}
-
 }
 
 

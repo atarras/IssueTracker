@@ -1,4 +1,4 @@
-package com.fdmgroup.controller;
+package com.fdmgroup.servlet;
 
 import java.io.IOException;
 
@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fdmgroup.dao.DBoperations;
+import com.fdmgroup.controller.UserController;
+import com.fdmgroup.model.Customer;
 import com.fdmgroup.model.User;
 
 /**
@@ -28,6 +29,7 @@ public class RegistrationServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String confpassword = request.getParameter("confpassword");
 		
+		UserController userController = new UserController();
 		
 		if(!password.equals(confpassword)) {
 			request.setAttribute("errorMsg", "Password is not matching");
@@ -38,8 +40,8 @@ public class RegistrationServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
 			rd.forward(request, response);
 		}else {
-			User newUser = new User(firstName,lastName,username,email,password);
-			DBoperations.addUser(newUser);
+			User newUser = new Customer(firstName,lastName,username,email,password);
+			userController.insert(newUser);
 			
 			request.setAttribute("user", newUser);
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/registerConfirmation.jsp");

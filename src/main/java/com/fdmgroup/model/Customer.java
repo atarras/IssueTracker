@@ -1,25 +1,35 @@
 package com.fdmgroup.model;
 
 import java.util.List;
+
+import com.fdmgroup.controller.UserController;
+
 import java.util.ArrayList;
 
-import com.fdmgroup.dao.DBoperations;
+public class Customer extends User {
+	private ArrayList<Complaint> complaints;
+	private UserController userController;
 
-public class Customer extends User{
-	ArrayList<Complaint> complaints;
-	
-	public Customer(long userID, String firstName, String lastName, String userName, String emailAddress, String password) {
+	public Customer(long userID, String firstName, String lastName, String userName, String emailAddress,
+			String password) {
 		super(userID, firstName, lastName, userName, emailAddress, password);
-		complaints =  new ArrayList<Complaint>();
+		complaints = new ArrayList<Complaint>();
+		userController = new UserController();
 	}
 
 	public void submitComplaint(Complaint newComplaint) {
 		complaints.add(newComplaint);
 	}
 
-	public  List<Complaint> getComplaints(String username) {
-		
-		 List<Complaint> usercomplaintList=DBoperations.getUserComplaints(username);
+	public Customer(String firstName, String lastName, String userName, String emailAddress, String password) {
+		super(firstName, lastName, userName, emailAddress, password);
+		complaints = new ArrayList<Complaint>();
+		userController = new UserController();
+	}
+
+	public List<Complaint> getComplaints(String username) {
+		User foundUser = userController.findByUsername(username);
+		List<Complaint> usercomplaintList = userController.findByUserID(foundUser.getUserID());
 		return usercomplaintList;
 	}
 }

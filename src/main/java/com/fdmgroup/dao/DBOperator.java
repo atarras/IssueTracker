@@ -1,5 +1,50 @@
 package com.fdmgroup.dao;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.fdmgroup.model.Complaint;
+
+public abstract class DBOperator <E>{
+	protected EntityManager entityManager;
+
+	public abstract E insert(E e);
+	public abstract E update(E e);
+	public abstract E delete(E e);
+	public abstract E findByID(long id);
+	public abstract List<E> getAll();
+	
+	public DBOperator() {
+		super();
+	}
+	
+
+	public List<Complaint> findByUserID(long userid){
+		open();
+		TypedQuery<Complaint> query = entityManager.createNamedQuery("complaint.findByUserID", Complaint.class);
+		query.setParameter("userid", userid);
+		
+		List<Complaint> complaints= query.getResultList();
+		close();
+		return complaints;
+	}
+	
+	protected void open() {
+		entityManager = DBConnection.getInstance().getEntityManager();
+	}
+	
+	protected void close() {
+		entityManager.close();
+	}
+	
+	
+}
+
+/*
+package com.fdmgroup.dao;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,11 +76,7 @@ public class DBoperations {
 		}
 
 	}
-	/**
-	 * Add complaint to database.
-	 * Front end needs to ensure "," is not passed in the description/subject.
-	 * @param complaint
-	 */
+
 	public static void addComplaint(Complaint complaint) {
 		DbConnection.connect();
 
@@ -165,6 +206,5 @@ public class DBoperations {
 
 		return complaintsList;
 	}
-	
-
 }
+*/

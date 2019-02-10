@@ -1,4 +1,4 @@
-package com.fdmgroup.controller;
+package com.fdmgroup.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fdmgroup.dao.DBoperations;
+import com.fdmgroup.controller.ComplaintController;
 import com.fdmgroup.model.Complaint;
 
 /**
@@ -19,22 +19,21 @@ import com.fdmgroup.model.Complaint;
  */
 @WebServlet("/admin")
 public class AdminHomeServlet extends HttpServlet {
-	List<Complaint> allComplaints = DBoperations.getAllComplaints();
-	HttpSession session;
 	
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
-		allComplaints = DBoperations.getAllComplaints();
-		session.setAttribute("allComplaints", allComplaints);
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/adminHomepage.jsp");
-		
-		rd.forward(request, response);
+		forwardAdmin(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		forwardAdmin(request,response);
+	}
+
+	private void forwardAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ComplaintController complaintController = new ComplaintController();
+		List<Complaint> allComplaints = complaintController.getAll();
+		HttpSession session;
 		session = request.getSession();
-		allComplaints = DBoperations.getAllComplaints();
 		session.setAttribute("allComplaints", allComplaints);
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/adminHomepage.jsp");
 		rd.forward(request, response);

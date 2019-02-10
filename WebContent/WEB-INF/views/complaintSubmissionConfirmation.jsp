@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -24,7 +24,7 @@
 	<form action="home" method="get" class ="complaintSubmittedContainer">
 		<font size="6">Complaint Successfully submitted!</font>
 		<div style="margin-top:3%"></div>
-		<font size="4"> One of our administrators will handle your complaint... <font>
+		<font size="4"> One of our administrators will handle your complaint... </font>
 		<button type="submit">Back to Homepage</button>
 	</form>
 	</center>

@@ -1,15 +1,44 @@
 package com.fdmgroup.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "COMPLAINTS")
+@NamedQueries({
+	@NamedQuery(name = "complaint.findAll", query = "SELECT c FROM Complaint c"),
+	@NamedQuery(name = "complaint.findByUserID", query = "SELECT c FROM Complaint c WHERE c.userID = :userid"),
+	@NamedQuery(name = "complaint.findByComplaintID", query = "SELECT c FROM Complaint c WHERE c.complaintID = :id"),
+	@NamedQuery(name = "complaint.findAllUnassigned", query = "SELECT c FROM Complaint c WHERE c.status = 'PENDING'"),
+})
+@SequenceGenerator(name="COMPLAINTS_SEQ", sequenceName = "COMPLAINTS_SEQ", allocationSize = 1)
 public class Complaint {
-	
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "COMPLAINTS_SEQ")
 	private long complaintID;
+	
+	@Column(name = "userid")
 	private long userID;
+	
+	@Column(name = "department")
 	private String department;
+	
+	@Column(name = "status")
 	private String status;
+	
+	@Column(name = "subject")
 	private String subject;
+	
+	@Column(name = "description")
 	private String description;
-	
-	
 	
 	public Complaint(long complaintID, long userID,String department, String status, String subject,
 			String description) {
@@ -22,6 +51,10 @@ public class Complaint {
 		this.description = description;
 	}
 	
+	public Complaint() {
+		super();
+	}
+
 	public Complaint(long userID, String department, String status, String subject, String description) {
 		super();
 		this.userID = userID;
@@ -81,7 +114,5 @@ public class Complaint {
 		return "Complaint [complaintID=" + complaintID + ", userID=" + userID + ", department=" + department
 				+ ", status=" + status + ", subject=" + subject + ", description=" + description + "]";
 	}
-	
-	
 	
 }
