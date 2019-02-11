@@ -47,42 +47,56 @@ public class UserTest {
 		for (User user : users) {
 			System.out.println(user);
 			userController.insert(user);
-		}		
+		}
 	}
 	
 	@Test
 	public void test_UpdateUserFirstName() {
 		String newFirstName = "New Name";
 		List<User> allRecords = userController.getAll();
-		int randomNum = (int) (Math.random() * (allRecords.size()-1));
-		
+		int randomNum = (int) (Math.random() * (allRecords.size() - 1));
+
 		User user = userController.findByUsername(allRecords.get(randomNum).getUserName());
 		user.setFirstName(newFirstName);
-		
+
 		userController.update(user);
-		
+
 		assertEquals(newFirstName, userController.findByID(user.getUserID()).getFirstName());
 	}
-	
+
 	@Test
 	public void test_DeleteValuesInsertedInTesting() {
 		User firstAddedUser = userController.findByUsername(users.get(0).getUserName());
-		User lastAddedUser = userController.findByUsername(users.get(users.size()-1).getUserName());
+		User lastAddedUser = userController.findByUsername(users.get(users.size() - 1).getUserName());
 		for (long i = firstAddedUser.getUserID(); i <= lastAddedUser.getUserID(); i++) {
 			User user = userController.findByID(i);
 			System.out.println("Deleting user " + user.getFirstName());
 			userController.delete(user);
 		}
 	}
-	
+
+	@Test
+	public void test_InsertNewComplaint() {
+		String testSubject = "Testing";
+		String testDescription = "Testing";
+		String testStatus = "PENDING";
+
+		Complaint complaint = new Complaint(2, testStatus, testSubject, testDescription);
+		
+		List<Complaint> complaintsBefore = complaintController.getAll();
+		complaintController.insert(complaint);
+		List<Complaint> complaintsAfter = complaintController.getAll();
+		
+		assertEquals(complaintsBefore.size()+1, complaintsAfter.size());
+	}
+
 	private void populateUsers(File file) {
 		String[] cellStrings = new String[6];
 		String fname, lname, type, email, user, pass;
 		int i = 0;
 		try (InputStream ExcelFileToRead = new FileInputStream(file);
 				XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
-				XSSFWorkbook test = new XSSFWorkbook()) 
-		{
+				XSSFWorkbook test = new XSSFWorkbook()) {
 			XSSFSheet sheet = wb.getSheetAt(0);
 			XSSFRow row;
 			XSSFCell cell;
@@ -92,10 +106,10 @@ public class UserTest {
 			while (rows.hasNext()) {
 				i = 0;
 				row = (XSSFRow) rows.next();
-				if( row.getRowNum() == 0) {
+				if (row.getRowNum() == 0) {
 					continue;
 				}
-				
+
 				Iterator<Cell> cells = row.cellIterator();
 				while (cells.hasNext()) {
 					cell = (XSSFCell) cells.next();
@@ -109,18 +123,17 @@ public class UserTest {
 				email = cellStrings[3];
 				user = cellStrings[4];
 				pass = cellStrings[5];
-				
-				if(type.equals("CUSTOMER")) {
+
+				if (type.equals("CUSTOMER")) {
 					users.add(new Customer(fname, lname, user, email, pass));
 				} else if (type.equals("ADMIN")) {
 					users.add(new Administrator(fname, lname, user, email, pass));
 				}
-				
+
 				System.out.println();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
 }

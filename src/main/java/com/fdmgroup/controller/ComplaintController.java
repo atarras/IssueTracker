@@ -23,6 +23,17 @@ public class ComplaintController extends DBOperator<Complaint> {
 		return complaints;
 	}
 	
+	public Complaint getLastUserComplaint(long userID) {
+		open();
+		
+		TypedQuery<Complaint> query = entityManager.createNamedQuery("complaint.findLastUserComplaint", Complaint.class);
+		
+		Complaint complaint= query.getResultList().get(0);
+
+		close();
+		return complaint;
+	}
+	
 	@Override
 	public Complaint insert(Complaint complaint) {
 		open();
@@ -30,8 +41,10 @@ public class ComplaintController extends DBOperator<Complaint> {
 		entityManager.persist(complaint);
 		entityManager.getTransaction().commit();
 		
+		Complaint lastUserComplaint = getLastUserComplaint(complaint.getUserID());
+		
 		close();
-		return complaint;
+		return lastUserComplaint;
 	}
 	
 	@Override

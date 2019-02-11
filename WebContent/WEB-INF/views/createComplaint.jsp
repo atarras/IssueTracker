@@ -9,21 +9,13 @@
 </head>
 <body bgcolor="#D1CCD6">
 
-	<!-- Start of Header area -->
-	<div class="navbar">
-		<a id="imagelogo" href="index.jsp"> <img
-			src="/resources/img/logo2.png" alt="">
-		</a> <a href="logout" style="float: right">Logout</a> <a href="about.html"
-			style="float: right">About</a>
-	</div>
-	<!-- End of Header area -->
+	<%@ include file="header.jsp"%>
 
 	<div style="margin-top: 2%"></div>
 	<center>
 		<font size="8">Issue Description</font>
 	</center>
-	<form action="submitComplaint" method="post"
-		style="margin-left: 21%; margin-right: 21%;">
+	<form action="submitComplaint" method="post">
 		<div class="newComplaintContainer">
 			<label><b>Subject:</b></label> <input type="text"
 				id="newComplaintSubject" placeholder="Subject" name="subject"
@@ -34,11 +26,13 @@
 
 		</div>
 
-		<div class="bottomContainer">
+		<div class="bottomContainer"
+			style="margin-left: 21%; margin-right: 21%;">
 			<button type="submit" name="submitComplaintbtn"
 				id="submitComplaintbtn">Submit Complaint</button>
-			<button type="button" name="cancelComplaintbtn" action="home"
-				id="cancelComplaintbtn">Cancel</button>
+			<form action="home" method="get">
+				<button type="button" name="cancelComplaintbtn" id="cancelComplaintbtn">Cancel</button>
+			</form>
 		</div>
 	</form>
 </body>

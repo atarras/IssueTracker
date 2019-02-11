@@ -9,13 +9,7 @@
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body bgcolor="#D1CCD6">
-	<!-- Start of Header area -->
-	<div class="navbar">
-		<a id="imagelogo" href="index.html"> <img src="logo2.png" alt="">
-		</a> <a href="login" style="float: right">Logout</a> <a href="about.html"
-			style="float: right">About</a>
-	</div>
-	<!-- End of Header area -->
+	<%@ include file="header.jsp" %>
 
 	<div style="margin-top: 5%"></div>
 
@@ -40,6 +34,12 @@
 				<td>${complaint.getComplaintID()}</td>
 				<td>${complaint.getStatus()}</td>
 				<td>${complaint.getUserID()}</td>
+				<td>
+					<form action = "seeComplaint" method = "post">
+						<input type="hidden" name="complaintID" value="${complaint.getComplaintID()}">
+						<button type="submit">See details...</button>
+					</form> 
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -239,3 +239,58 @@ img.logavatar {
 	width:18%;
 	float: left;
 }
+
+.mySlides {display: none}
+.mySlides a img {
+	vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.aboutTextContainer {
+	width:70%;
+	border-style:outset;
+	padding: 1% 1%;
+}
+
+#aboutImageContainer {
+	height: auto; 
+    width: auto; 
+    max-width: 100%; 
+	border-style:outset;
+	margin-bottom:10%;
+}
+
+.bigGrid {
+	max-width:90%;
+	display:grid;
+	grid-column-gap: 1%;
+	grid-row-gap: 1%;
+	grid-template-columns: auto auto auto auto;
+	float:center;
+	margin-top: 2%;
+}
+

@@ -7,29 +7,66 @@
 <title>Issue Tracker - Login</title>
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
-<body>
+<body bgcolor="#D1CCD6">
+
+	<%@ include file="WEB-INF/views/header.jsp" %>
+
 	<center>
-		<form action="processLogin" method="post" style="max-width: 60%">
-			<div class="logcontainer">
-				<div class="logimgcontainer">
-					<img src="resources/img/log.jpg" alt="Avatar" class="logavatar">
-				</div>
-				<h2 class="error">${errorMsg}</h2>
-
-				<label for="uname"><b>Username</b></label> <input type="text"
-					placeholder="Enter Username" name="username" required> <label
-					for="psw"><b>Password</b></label> <input type="password"
-					placeholder="Enter Password" name="password" required>
-
-				<button type="submit" value="login">Login</button>
-			</div>
-
-			<div class="bottomContainer">
-				<button type="submit" id="logcancelbtn">Cancel</button>
-				<span style="float: right">Not a member? <a
-					href="register.jsp">Register</a></span>
-			</div>
-		</form>
+		<div style="margin-top: 3%"></div>
+		<font size="8"> Welcome to IssueTracker! </font>
+		<div style="margin-top: 3%"></div>
 	</center>
+
+	<center>
+		<div class="slideshow-container">
+
+			<div class="mySlides fade">
+				<a href="#"> <img src="resources/img/s1.jpg">
+				</a>
+			</div>
+
+			<div class="mySlides fade">
+				<a href="#"> <img src="resources/img/s2.jpg">
+				</a>
+			</div>
+
+			<div class="mySlides fade">
+				<a href="#"> <img src="resources/img/s3.jpg">
+				</a>
+			</div>
+
+		</div>
+	</center>
+
+
+	<br>
+
+	<div style="text-align: center">
+		<span class="dot"></span> <span class="dot"></span> <span class="dot"></span>
+	</div>
+
+	<script>
+		var slideIndex = 0;
+		showSlides();
+
+		function showSlides() {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			slideIndex++;
+			if (slideIndex > slides.length) {
+				slideIndex = 1
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex - 1].style.display = "block";
+			dots[slideIndex - 1].className += " active";
+			setTimeout(showSlides, 3000); // Change image every 2 seconds
+		}
+	</script>
 </body>
 </html>

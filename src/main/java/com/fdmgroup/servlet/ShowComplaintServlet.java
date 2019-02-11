@@ -12,26 +12,36 @@ import javax.servlet.http.HttpSession;
 
 import com.fdmgroup.controller.ComplaintController;
 import com.fdmgroup.model.Complaint;
-import com.fdmgroup.model.Customer;
-import com.fdmgroup.model.User;
 
 /**
- * Servlet implementation class AuthenticationServlet
+ * Servlet implementation class ShowComplaintServlet
  */
-@WebServlet("/submitComplaint")
-public class ComplaintServlet extends HttpServlet {
+@WebServlet("/seeComplaint")
+public class ShowComplaintServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ComplaintController complaintController = new ComplaintController();
-		String subject = request.getParameter("subject");
-		String description = request.getParameter("description");
+		long complaintID = (long) request.getAttribute("complaintID");
 		HttpSession session = request.getSession();
-		Customer sessionUser = (Customer) session.getAttribute("user");
 		
-		sessionUser.submitComplaint(subject, description);
+		System.out.println("Complaint ID = " + complaintID);
+		/*
+		Complaint foundComplaint = complaintController.findByID(complaintID);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/complaintSubmitted.jsp");
+		if(foundComplaint != null) {
+			session.setAttribute("complaintObject", foundComplaint);
+		}
+		*/
+		
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/viewComplaint.jsp");
 		rd.forward(request, response);
 	}
 }

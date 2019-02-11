@@ -9,22 +9,14 @@
 </head>
 <body bgcolor="#D1CCD6">
 	
-	<!-- Start of Header area -->
-	<div class="navbar">
-		<a id="imagelogo" href="index.html"> <img src="logo2.png" alt=""> </a>		
-
-		<a href="#news" style="float:right">Account</a>
-		
-		<a href="#" style="float:right">About</a> 
-	</div>
-	<!-- End of Header area -->
+	<%@ include file="header.jsp" %>
 	
 	<center>
 	<div style="margin-top:10%"> </div>
-	<form action="home" method="get" class ="complaintSubmittedContainer">
 		<font size="6">Complaint Successfully submitted!</font>
 		<div style="margin-top:3%"></div>
-		<font size="4"> One of our administrators will handle your complaint... </font>
+		<font size="4">Your complaint will be handle shortly.</font>
+	<form action="home" method="get" class ="complaintSubmittedContainer">
 		<button type="submit">Back to Homepage</button>
 	</form>
 	</center>

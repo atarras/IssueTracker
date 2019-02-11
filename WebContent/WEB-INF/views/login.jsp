@@ -7,7 +7,10 @@
 <title>Issue Tracker - Login</title>
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
-<body>
+<body bgcolor="#D1CCD6">
+
+	<%@ include file="header.jsp" %>
+	
 	<center>
 		<form action="processLogin" method="post" style="max-width:60%">
 		<div class="logcontainer">
@@ -27,7 +30,7 @@
 
 		  <div class="bottomContainer">
 			<button type="submit" id="logcancelbtn">Cancel</button>
-			<span style="float:right">Not a member? <a href="register.jsp">Register</a></span>
+			<span style="float:right">Not a member? <a href="register">Register</a></span>
 		  </div>
 		</form>
 	</center>

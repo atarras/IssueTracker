@@ -35,7 +35,7 @@ public class AuthenticationServlet extends HttpServlet {
 		}
 		else {
 			request.setAttribute("errorMsg", "Username/Password is wrong.");
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/login.jsp");
 			rd.forward(request, response);
 		}
 	}

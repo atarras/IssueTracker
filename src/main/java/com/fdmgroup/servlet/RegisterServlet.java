@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AuthenticationServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/cancelRegistration")
-public class CancelRegistrationServlet extends HttpServlet {
+@WebServlet("/register")
+public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/register.jsp");
 		rd.forward(request, response);
 	}
 }

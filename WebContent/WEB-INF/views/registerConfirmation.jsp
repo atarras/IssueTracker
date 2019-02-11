@@ -7,6 +7,9 @@
 <title>Registration Confirmation</title>
 </head>
 <body>
+
+<%@ include file="header.jsp" %>
+
 <h2>Successfully Registered!</h2>
 <br>
 <h2>Welcome</h2>

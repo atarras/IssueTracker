@@ -19,7 +19,6 @@ public abstract class DBOperator <E>{
 	public DBOperator() {
 		super();
 	}
-	
 
 	public List<Complaint> findByUserID(long userid){
 		open();
