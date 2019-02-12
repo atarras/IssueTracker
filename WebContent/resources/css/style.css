@@ -103,7 +103,7 @@ img.logavatar {
     opacity: 0.8;
 }
 
-.regcontainer input[type=text], .regcontainer input[type=password] {
+.regcontainer input {
     width: 100%;
     padding: 1.2% 1.2%;
     margin-bottom: 3%;
