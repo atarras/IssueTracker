@@ -42,12 +42,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>ojbc7</groupId>
-				<artifactId>ojdbc7</artifactId>
-				<version>12.1.0.2</version>
-			</plugin>
-
-			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.0.0</version>
 				<configuration>

@@ -2,7 +2,7 @@
 <%@page import="com.fdmgroup.model.User"%>
 <div class="navbar">
 	<a id="imagelogo" href="index.jsp"> 
-		<img src="resources/img/logo2.png" alt="">
+		<img src="/resources/img/logo2.png" alt="">
 	</a>
 	
 	<%

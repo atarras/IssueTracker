@@ -1,4 +1,13 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
 .loginButton{
 	float: left;
@@ -103,7 +112,7 @@ img.logavatar {
     opacity: 0.8;
 }
 
-.regcontainer input[type=text], .regcontainer input[type=password] {
+.regcontainer input {
     width: 100%;
     padding: 1.2% 1.2%;
     margin-bottom: 3%;

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Issue Tracker - Login</title>
-<link rel="stylesheet" href="resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body bgcolor="#D1CCD6">
 
@@ -15,7 +15,7 @@
 		<form action="processLogin" method="post" style="max-width:60%">
 		<div class="logcontainer">
 			<div class="logimgcontainer">
-				<img src="resources/img/log.jpg" alt="Avatar" class="logavatar">
+				<img src="/resources/img/log.jpg" alt="Avatar" class="logavatar">
 			</div>
 				<h2 class="error">${errorMsg}</h2>
 		    

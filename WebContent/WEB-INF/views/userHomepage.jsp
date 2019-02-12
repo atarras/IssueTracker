@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Issue Tracker - Customer Home</title>
-<link rel="stylesheet" href="/resources/css/style.css">
+<link rel="stylesheet" href="classes/css/style.css">
 </head>
 <body bgcolor="#D1CCD6">
 
