@@ -8,10 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fdmgroup.controller.ComplaintController;
 import com.fdmgroup.model.Complaint;
+import com.fdmgroup.model.Department;
 
 /**
  * Servlet implementation class ShowComplaintServlet
@@ -26,11 +26,11 @@ public class ShowComplaintServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ComplaintController complaintController = new ComplaintController();
 		long complaintID = Long.parseLong(request.getParameter("complaint"));
-		HttpSession session = request.getSession();
-		Complaint sessionComplaint = complaintController.findByID(complaintID);
+		Complaint requestComplaint = complaintController.findByID(complaintID);
 		
+		request.setAttribute("complaintObject", requestComplaint);
+		request.setAttribute("departmentArr", Department.values());
 		
-		session.setAttribute("complaintObject", sessionComplaint);
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/viewComplaint.jsp");
 		rd.forward(request, response);
 	}

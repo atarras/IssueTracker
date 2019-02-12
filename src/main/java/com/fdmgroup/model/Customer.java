@@ -14,7 +14,7 @@ public class Customer extends User {
 
 	public Customer(long userID, String firstName, String lastName, String userName, String emailAddress,
 			String password) {
-		super(userID, firstName, lastName, "CUSTOMER", userName, emailAddress, password);
+		super(userID, firstName, lastName, Type.CUSTOMER, userName, emailAddress, password);
 		complaints = new ArrayList<Complaint>();
 		userController = new UserController();
 		complaintController = new ComplaintController();
@@ -28,15 +28,15 @@ public class Customer extends User {
 		this(user.getUserID(),user.getFirstName(),user.getLastName(),user.getUserName(),user.getEmailAddress(),user.getPassword());
 	}
 
-	public List<Complaint> getComplaints(String username) {
-		User foundUser = userController.findByUsername(username);
+	public List<Complaint> getComplaints() {
+		User foundUser = userController.findByUsername(this.getUserName());
 		List<Complaint> usercomplaintList = userController.findByUserID(foundUser.getUserID());
 		return usercomplaintList;
 	}
 
 	public void submitComplaint(String subject, String description) {
 		long id = this.getUserID();
-		Complaint insertedComplaint = complaintController.insert(new Complaint(id,"PENDING", subject, description));
+		Complaint insertedComplaint = complaintController.insert(new Complaint(id, subject, description));
 		complaints.add(insertedComplaint);
 	}
 }

@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.fdmgroup.model.Complaint"%>
 <%@ page import="java.util.List"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,14 +12,15 @@
 </head>
 <body bgcolor="#D1CCD6">
 
-	<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 
 	<div style="margin-top: 5%"></div>
 
 	<div class="myComplaintsContainer">
 		<div class="myComplaintstitle">
 			<center>
-				<font size="6">My Complaints</font>
+				<font size="6">${listTitle}</font>
+				<h2 class="error">${errorMsg}</h2>
 			</center>
 		</div>
 	</div>
@@ -29,21 +30,30 @@
 			<th>Subject</th>
 			<th>Issue ID</th>
 			<th>Status</th>
+			<c:if test="${user.getType() eq 'ADMIN'}">
+				<th>User ID</th>
+			</c:if>
 		</tr>
-		<c:forEach items="${userComplaints}" var="complaint">
+		<c:forEach items="${complaintList}" var="complaint">
 			<tr>
 				<td>${complaint.getSubject()}</td>
-				<td><a href="seeComplaint?complaint=${complaint.getComplaintID()}"> ${complaint.getComplaintID()}</a></td>
+				<td><a
+					href="seeComplaint?complaint=${complaint.getComplaintID()}">
+						${complaint.getComplaintID()}</a></td>
 				<td>${complaint.getStatus()}</td>
+				<c:if test="${user.getType() eq 'ADMIN'}">
+					<td>${complaint.getUserID()}</td>
+				</c:if>
 			</tr>
 		</c:forEach>
 	</table>
 
-	
-	<form action="complaint" method="get">
-		<button type="submit" id="newComplaintbtn">Create New
-			Complaint</button>
-	</form>
+	<c:if test="${user.getType() eq 'CUSTOMER'}">
+		<form action="complaint" method="get">
+			<button type="submit" id="newComplaintbtn">Create New
+				Complaint</button>
+		</form>
+	</c:if>
 
 </body>
 </html>

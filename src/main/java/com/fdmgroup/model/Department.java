@@ -1,5 +1,5 @@
 package com.fdmgroup.model;
 
 public enum Department {
-	Techinal,HR,Sales,Recruitment
+	Unassigned,Technical,HR,Sales,Recruitment
 }

@@ -9,12 +9,16 @@ public class Administrator extends User {
 	
 	public Administrator(long userID, String firstName, String lastName, String userName, String emailAddress,
 			String password) {
-		super(userID, firstName, lastName, "ADMIN", userName, emailAddress, password);
+		super(userID, firstName, lastName, Type.ADMIN, userName, emailAddress, password);
 		complaintController = new ComplaintController();
 	}
 
 	public Administrator(String firstName, String lastName, String userName, String emailAddress, String password) {
 		this(0,firstName, lastName, userName, emailAddress, password);
+	}
+
+	public Administrator(User user) {
+		this(user.getUserID(),user.getFirstName(),user.getLastName(),user.getUserName(),user.getEmailAddress(),user.getPassword());
 	}
 
 	public void setComplaintStatus(long complaintID, String status) {

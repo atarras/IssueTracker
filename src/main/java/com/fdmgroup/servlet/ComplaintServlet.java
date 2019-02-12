@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fdmgroup.controller.ComplaintController;
-import com.fdmgroup.model.Complaint;
 import com.fdmgroup.model.Customer;
 import com.fdmgroup.model.User;
 

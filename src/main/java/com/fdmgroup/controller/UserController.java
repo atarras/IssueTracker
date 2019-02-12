@@ -5,8 +5,6 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import com.fdmgroup.dao.DBOperator;
-import com.fdmgroup.model.Administrator;
-import com.fdmgroup.model.Customer;
 import com.fdmgroup.model.User;
 
 public class UserController extends DBOperator<User> {
@@ -28,15 +26,8 @@ public class UserController extends DBOperator<User> {
 	@Override
 	public User insert(User user){
 		open();
-		User newUser = null;
 		entityManager.getTransaction().begin();
-		if(user instanceof Customer) {
-			newUser = new User(user.getFirstName(),user.getLastName(),"CUSTOMER",user.getEmailAddress(),user.getUserName(),user.getPassword());
-		} else if (user instanceof Administrator) {
-			newUser = new User(user.getFirstName(),user.getLastName(),"ADMIN",user.getEmailAddress(),user.getUserName(),user.getPassword());
-		}
-		
-		entityManager.persist(newUser);
+		entityManager.persist(user);
 		entityManager.getTransaction().commit();
 		
 		close();

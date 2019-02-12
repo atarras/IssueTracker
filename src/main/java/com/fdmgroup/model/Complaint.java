@@ -43,32 +43,23 @@ public class Complaint {
 		super();
 	}
 
-	public Complaint(long complaintID, long userID, String department, String status, String subject,
+	public Complaint(long complaintID, long userID, Department department, Status status, String subject,
 			String description) {
 		super();
 		this.complaintID = complaintID;
 		this.userID = userID;
-		this.department = department;
-		this.status = status;
+		this.department = department.toString();
+		this.status = status.toString();
 		this.subject = subject;
 		this.description = description;
 	}
 
-	public Complaint(long userID, String department, String status, String subject, String description) {
-		super();
-		this.userID = userID;
-		this.department = department;
-		this.status = status;
-		this.subject = subject;
-		this.description = description;
+	public Complaint(long userID, Department department, Status status, String subject, String description) {
+		this(0,userID,department,status,subject,description);
 	}
 
-	public Complaint(long userID, String status, String subject, String description) {
-		super();
-		this.userID = userID;
-		this.subject = subject;
-		this.status = status;
-		this.description = description;
+	public Complaint(long userID, String subject, String description) {
+		this(0,userID,Department.Unassigned,Status.PENDING,subject,description);
 	}
 
 	public long getComplaintID() {

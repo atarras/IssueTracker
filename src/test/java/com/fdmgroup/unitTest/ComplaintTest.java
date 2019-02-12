@@ -6,6 +6,7 @@ import com.fdmgroup.model.Administrator;
 import com.fdmgroup.model.Complaint;
 import com.fdmgroup.model.Department;
 import com.fdmgroup.model.Status;
+import com.fdmgroup.model.User;
 
 import static org.junit.Assert.*;
 
@@ -20,18 +21,22 @@ public class ComplaintTest {
 	UserController userController;
 	String testSubject = "Testing";
 	String testDescription = "Testing";
-	String testStatus = "PENDING";
 	Administrator admin;
 
 	@Before
 	public void init() {
 		complaintController = new ComplaintController();
-		complaint = new Complaint(2, testStatus, testSubject, testDescription);
+		userController = new UserController();
 		admin = new Administrator("Gabriel", "Moreira", "gmmeng", "admin@fdm.com", "1234");
 	}
 
 	@Test
 	public void test_InsertNewComplaint() {
+		List<User> allUsers = userController.getAll();
+		int randomNum = (int) (Math.random() * (allUsers.size() - 1));
+		User randomUser = allUsers.get(randomNum);
+		complaint = new Complaint(randomUser.getUserID(), testSubject, testDescription);
+		
 		List<Complaint> complaintsBefore = complaintController.getAll();
 		complaintController.insert(complaint);
 		List<Complaint> complaintsAfter = complaintController.getAll();

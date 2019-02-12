@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fdmgroup.controller.UserController;
-import com.fdmgroup.model.Customer;
 import com.fdmgroup.model.User;
 
 /**
@@ -40,7 +39,8 @@ public class RegistrationServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
 			rd.forward(request, response);
 		}else {
-			User newUser = new Customer(firstName,lastName,username,email,password);
+			User newUser = new User(firstName,lastName,username,email,password);
+			
 			userController.insert(newUser);
 			
 			request.setAttribute("user", newUser);
@@ -50,24 +50,3 @@ public class RegistrationServlet extends HttpServlet {
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

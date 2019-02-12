@@ -2,9 +2,9 @@ package com.fdmgroup.unitTest;
 
 import com.fdmgroup.controller.ComplaintController;
 import com.fdmgroup.controller.UserController;
-import com.fdmgroup.model.Administrator;
 import com.fdmgroup.model.Complaint;
 import com.fdmgroup.model.Customer;
+import com.fdmgroup.model.Type;
 import com.fdmgroup.model.User;
 import static org.junit.Assert.*;
 
@@ -125,9 +125,9 @@ public class UserTest {
 				pass = cellStrings[5];
 
 				if (type.equals("CUSTOMER")) {
-					users.add(new Customer(fname, lname, user, email, pass));
+					users.add(new User(fname, lname, Type.CUSTOMER, user, email, pass));
 				} else if (type.equals("ADMIN")) {
-					users.add(new Administrator(fname, lname, user, email, pass));
+					users.add(new User(fname, lname, Type.ADMIN, user, email, pass));
 				}
 
 				System.out.println();

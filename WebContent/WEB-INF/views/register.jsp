@@ -26,10 +26,10 @@
 				<input type="text" placeholder="Username" name="username" required>
 				
 				<label for="email"><b>Email:</b></label>
-				<input type="text" placeholder="mail@example.com" name="email" required>
+				<input type="email" placeholder="mail@example.com" name="email" required>
 				
 				<label for="confemail"><b>Confirm Email:</b></label>
-				<input type="text" placeholder="mail@example.com" name="confemail" required>
+				<input type="email" placeholder="mail@example.com" name="confemail" required>
 				
 				<label for="psw"><b>Password:</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>

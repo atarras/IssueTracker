@@ -46,34 +46,23 @@ public class User {
 		super();
 	}
 
-	public User(long userID, String firstName, String lastName, String type, String userName, String emailAddress, String password) {
+	public User(long userID, String firstName, String lastName, Type type, String userName, String emailAddress, String password) {
 		super();
 		this.userID = userID;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.type = type;
+		this.type = type.toString();
 		this.userName = userName;
 		this.emailAddress = emailAddress;
 		this.password = password;
 	}
 	
 	public User(String firstName, String lastName, String userName, String emailAddress, String password) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userName = userName;
-		this.emailAddress = emailAddress;
-		this.password = password;
+		this(0,firstName,lastName,Type.CUSTOMER,userName,emailAddress,password);
 	}
 
-	public User(String firstName, String lastName, String type, String emailAddress, String userName, String password) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.type = type;
-		this.emailAddress = emailAddress;
-		this.userName = userName;
-		this.password = password;
+	public User(String firstName, String lastName, Type type, String userName, String emailAddress, String password) {
+		this(0,firstName,lastName,type,userName,emailAddress,password);
 	}
 
 	public String getType() {
