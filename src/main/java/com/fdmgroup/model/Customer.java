@@ -14,16 +14,18 @@ public class Customer extends User {
 
 	public Customer(long userID, String firstName, String lastName, String userName, String emailAddress,
 			String password) {
-		super(userID, firstName, lastName, userName, emailAddress, password);
+		super(userID, firstName, lastName, "CUSTOMER", userName, emailAddress, password);
 		complaints = new ArrayList<Complaint>();
 		userController = new UserController();
 		complaintController = new ComplaintController();
 	}
 
 	public Customer(String firstName, String lastName, String userName, String emailAddress, String password) {
-		super(firstName, lastName, userName, emailAddress, password);
-		complaints = new ArrayList<Complaint>();
-		userController = new UserController();
+		this(0,firstName, lastName, userName, emailAddress, password);
+	}
+
+	public Customer(User user) {
+		this(user.getUserID(),user.getFirstName(),user.getLastName(),user.getUserName(),user.getEmailAddress(),user.getPassword());
 	}
 
 	public List<Complaint> getComplaints(String username) {
@@ -33,7 +35,8 @@ public class Customer extends User {
 	}
 
 	public void submitComplaint(String subject, String description) {
-		Complaint insertedComplaint = complaintController.insert(new Complaint(this.getUserID(),"PENDING", subject, description));
+		long id = this.getUserID();
+		Complaint insertedComplaint = complaintController.insert(new Complaint(id,"PENDING", subject, description));
 		complaints.add(insertedComplaint);
 	}
 }

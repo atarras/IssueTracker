@@ -15,6 +15,16 @@ public class UserController extends DBOperator<User> {
 		super();
 	}
 	
+	public List<User> findByType(String type){
+		open();
+		TypedQuery<User> query = entityManager.createNamedQuery("user.findByType", User.class);
+		query.setParameter("type", type);
+		List<User> users = query.getResultList();
+		
+		close();
+		return users;
+	}
+	
 	@Override
 	public User insert(User user){
 		open();

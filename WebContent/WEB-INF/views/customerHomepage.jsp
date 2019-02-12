@@ -33,14 +33,8 @@
 		<c:forEach items="${userComplaints}" var="complaint">
 			<tr>
 				<td>${complaint.getSubject()}</td>
-				<td>${complaint.getComplaintID()}</td>
+				<td><a href="seeComplaint?complaint=${complaint.getComplaintID()}"> ${complaint.getComplaintID()}</a></td>
 				<td>${complaint.getStatus()}</td>
-				<td>
-					<form action = "seeComplaint" method = "post">
-						<input type="hidden" name="complaintID" value="${complaint.getComplaintID()}">
-						<button type="submit">See details...</button>
-					</form> 
-				</td>
 			</tr>
 		</c:forEach>
 	</table>

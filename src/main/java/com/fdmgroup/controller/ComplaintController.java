@@ -16,7 +16,6 @@ public class ComplaintController extends DBOperator<Complaint> {
 		open();
 		
 		TypedQuery<Complaint> query = entityManager.createNamedQuery("complaint.findAllUnassigned", Complaint.class);
-		
 		List<Complaint> complaints= query.getResultList();
 
 		close();
@@ -27,7 +26,7 @@ public class ComplaintController extends DBOperator<Complaint> {
 		open();
 		
 		TypedQuery<Complaint> query = entityManager.createNamedQuery("complaint.findLastUserComplaint", Complaint.class);
-		
+		query.setParameter("id", userID);
 		Complaint complaint= query.getResultList().get(0);
 
 		close();
@@ -40,10 +39,9 @@ public class ComplaintController extends DBOperator<Complaint> {
 		entityManager.getTransaction().begin();
 		entityManager.persist(complaint);
 		entityManager.getTransaction().commit();
+		close();
 		
 		Complaint lastUserComplaint = getLastUserComplaint(complaint.getUserID());
-		
-		close();
 		return lastUserComplaint;
 	}
 	
@@ -80,7 +78,7 @@ public class ComplaintController extends DBOperator<Complaint> {
 	public Complaint delete(Complaint complaint) {
 		open();
 		
-		Complaint managedComplaint = entityManager.find(Complaint.class, complaint.getUserID());
+		Complaint managedComplaint = entityManager.find(Complaint.class, complaint.getComplaintID());
 		entityManager.getTransaction().begin();
 		entityManager.remove(managedComplaint);
 		entityManager.getTransaction().commit();

@@ -23,11 +23,10 @@ public class ComplaintServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ComplaintController complaintController = new ComplaintController();
 		String subject = request.getParameter("subject");
 		String description = request.getParameter("description");
 		HttpSession session = request.getSession();
-		Customer sessionUser = (Customer) session.getAttribute("user");
+		Customer sessionUser = new Customer((User) session.getAttribute("user"));
 		
 		sessionUser.submitComplaint(subject, description);
 		

@@ -5,6 +5,7 @@ import com.fdmgroup.controller.UserController;
 import com.fdmgroup.model.Administrator;
 import com.fdmgroup.model.Complaint;
 import com.fdmgroup.model.Department;
+import com.fdmgroup.model.Status;
 
 import static org.junit.Assert.*;
 
@@ -41,11 +42,31 @@ public class ComplaintTest {
 	@Test
 	public void test_SetNewDepartment() {
 		List<Complaint> complaints = complaintController.getAll();
-		String newDepartment = Department.Financial.toString();
+		String newDepartment = Department.HR.toString();
 		int randomNum = (int) (Math.random() * (complaints.size() - 1));
 		
 		Complaint randomComplaint = complaints.get(randomNum);
 		
 		admin.assignDepartment(randomComplaint.getComplaintID(), newDepartment);
+	}
+	
+	@Test
+	public void test_SetNewStatus() {
+		List<Complaint> complaints = complaintController.getAll();
+		int randomNum = (int) (Math.random() * (complaints.size() - 1));
+		Complaint randomComplaint = complaints.get(randomNum);
+		String newStatus = Status.COMPLETED.toString();
+		
+		admin.setComplaintStatus(randomComplaint.getComplaintID(), newStatus);
+	}
+	
+	@Test
+	public void test_DeleteComplaint() {
+		List<Complaint> complaints = complaintController.getAll();
+		int randomNum = (int) (Math.random() * (complaints.size() - 1));
+		Complaint randomComplaint = complaints.get(randomNum);
+		Complaint deletedComplaint = complaintController.delete(randomComplaint);
+		
+		assertNull(complaintController.findByID(deletedComplaint.getComplaintID()));
 	}
 }

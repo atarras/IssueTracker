@@ -9,12 +9,12 @@ public class Administrator extends User {
 	
 	public Administrator(long userID, String firstName, String lastName, String userName, String emailAddress,
 			String password) {
-		super(userID, firstName, lastName, userName, emailAddress, password);
+		super(userID, firstName, lastName, "ADMIN", userName, emailAddress, password);
 		complaintController = new ComplaintController();
 	}
 
 	public Administrator(String firstName, String lastName, String userName, String emailAddress, String password) {
-		super(firstName, lastName, userName, emailAddress, password);
+		this(0,firstName, lastName, userName, emailAddress, password);
 	}
 
 	public void setComplaintStatus(long complaintID, String status) {

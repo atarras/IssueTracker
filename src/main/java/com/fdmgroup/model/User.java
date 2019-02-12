@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(name = "user.findAll", query = "SELECT u FROM User u"),
 	@NamedQuery(name = "user.findByUsername", query = "SELECT u FROM User u WHERE u.userName = :username"),
+	@NamedQuery(name = "user.findByType", query = "SELECT u FROM User u WHERE u.type = :type")
 })
 @SequenceGenerator(name="U_SEQ", sequenceName = "U_SEQ", allocationSize = 1)
 public class User {
@@ -45,11 +46,12 @@ public class User {
 		super();
 	}
 
-	public User(long userID, String firstName, String lastName, String userName, String emailAddress, String password) {
+	public User(long userID, String firstName, String lastName, String type, String userName, String emailAddress, String password) {
 		super();
 		this.userID = userID;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.type = type;
 		this.userName = userName;
 		this.emailAddress = emailAddress;
 		this.password = password;

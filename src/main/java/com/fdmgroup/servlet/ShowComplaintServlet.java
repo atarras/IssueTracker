@@ -24,24 +24,18 @@ public class ShowComplaintServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ComplaintController complaintController = new ComplaintController();
+		long complaintID = Long.parseLong(request.getParameter("complaint"));
+		HttpSession session = request.getSession();
+		Complaint sessionComplaint = complaintController.findByID(complaintID);
+		
+		
+		session.setAttribute("complaintObject", sessionComplaint);
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/viewComplaint.jsp");
+		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ComplaintController complaintController = new ComplaintController();
-		long complaintID = (long) request.getAttribute("complaintID");
-		HttpSession session = request.getSession();
-		
-		System.out.println("Complaint ID = " + complaintID);
-		/*
-		Complaint foundComplaint = complaintController.findByID(complaintID);
-		
-		if(foundComplaint != null) {
-			session.setAttribute("complaintObject", foundComplaint);
-		}
-		*/
-		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/viewComplaint.jsp");
-		rd.forward(request, response);
+		doGet(request,response);
 	}
 }

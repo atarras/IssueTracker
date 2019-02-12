@@ -31,6 +31,8 @@ public class UserTest {
 	ComplaintController complaintController;
 	UserController userController;
 	File usersFile = new File("src\\test\\resources\\users.xlsx");
+	String testSubject = "Testing";
+	String testDescription = "Testing";
 
 	@Before
 	public void init() {
@@ -74,20 +76,18 @@ public class UserTest {
 			userController.delete(user);
 		}
 	}
-
+	
 	@Test
-	public void test_InsertNewComplaint() {
-		String testSubject = "Testing";
-		String testDescription = "Testing";
-		String testStatus = "PENDING";
-
-		Complaint complaint = new Complaint(2, testStatus, testSubject, testDescription);
+	public void test_SubmitNewComplaint() {
+		List<User> allRecords = userController.findByType("CUSTOMER");
+		int randomNum = (int) (Math.random() * (allRecords.size() - 1));
+		Customer randomCustomer = new Customer(allRecords.get(randomNum));
 		
-		List<Complaint> complaintsBefore = complaintController.getAll();
-		complaintController.insert(complaint);
-		List<Complaint> complaintsAfter = complaintController.getAll();
+		randomCustomer.submitComplaint(testSubject, testDescription);
 		
-		assertEquals(complaintsBefore.size()+1, complaintsAfter.size());
+		Complaint lastComplaint = complaintController.getLastUserComplaint(randomCustomer.getUserID());
+		
+		assertTrue(lastComplaint.getDescription().equals(testDescription));
 	}
 
 	private void populateUsers(File file) {
