@@ -13,7 +13,7 @@
 
 	<center>
 		<div style="margin-top: 3%"></div>
-		<font size="8"> Welcome to IssueTracker! </font>
+		<font size="8"> Welcome to IssueTracker! ${pageContext.request.contextPath} </font>
 		<div style="margin-top: 3%"></div>
 	</center>
 
