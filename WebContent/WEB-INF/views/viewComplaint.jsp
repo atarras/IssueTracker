@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="classes/css/style.css">
+<link rel="stylesheet" href="resources/css/style.css">
 <title>Issue Tracker - Complaint Details</title>
 </head>
 <body bgcolor="#D1CCD6">

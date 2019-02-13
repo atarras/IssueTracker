@@ -39,15 +39,14 @@ public class UserTest {
 		users = new ArrayList<User>();
 		userController = new UserController();
 		complaintController = new ComplaintController();
-		populateUsers(usersFile);
 		System.out.println("Starting test");
+		populateUsers(usersFile);
 	}
 
 	@Test
 	public void test_InsertionIntoUsersTable() {
-		System.out.println("Values to add:");
+		System.out.println("Inserting users in database...");
 		for (User user : users) {
-			System.out.println(user);
 			userController.insert(user);
 		}
 	}
@@ -68,11 +67,11 @@ public class UserTest {
 
 	@Test
 	public void test_DeleteValuesInsertedInTesting() {
+		System.out.println("Deleting users in database...");
 		User firstAddedUser = userController.findByUsername(users.get(0).getUserName());
 		User lastAddedUser = userController.findByUsername(users.get(users.size() - 1).getUserName());
 		for (long i = firstAddedUser.getUserID(); i <= lastAddedUser.getUserID(); i++) {
 			User user = userController.findByID(i);
-			System.out.println("Deleting user " + user.getFirstName());
 			userController.delete(user);
 		}
 	}
@@ -113,8 +112,6 @@ public class UserTest {
 				Iterator<Cell> cells = row.cellIterator();
 				while (cells.hasNext()) {
 					cell = (XSSFCell) cells.next();
-
-					System.out.print(cell.getStringCellValue() + " ");
 					cellStrings[i++] = cell.getStringCellValue();
 				}
 				fname = cellStrings[0];
@@ -129,8 +126,6 @@ public class UserTest {
 				} else if (type.equals("ADMIN")) {
 					users.add(new User(fname, lname, Type.ADMIN, user, email, pass));
 				}
-
-				System.out.println();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

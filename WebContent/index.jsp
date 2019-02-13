@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Issue Tracker - Login</title>
-<link rel="stylesheet" href="classes/css/style.css">
+<link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body bgcolor="#D1CCD6">
 
@@ -21,17 +21,17 @@
 		<div class="slideshow-container">
 
 			<div class="mySlides fade">
-				<a href="#"> <img src="classes/img/s1.jpg">
+				<a href="#"> <img src="resources/img/s1.jpg">
 				</a>
 			</div>
 
 			<div class="mySlides fade">
-				<a href="#"> <img src="classes/img/s2.jpg">
+				<a href="#"> <img src="resources/img/s2.jpg">
 				</a>
 			</div>
 
 			<div class="mySlides fade">
-				<a href="#"> <img src="classes/img/s3.jpg">
+				<a href="#"> <img src="resources/img/s3.jpg">
 				</a>
 			</div>
 
