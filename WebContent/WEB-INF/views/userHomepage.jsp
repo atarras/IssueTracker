@@ -2,10 +2,15 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.fdmgroup.model.Complaint"%>
 <%@ page import="java.util.List"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<c:set var="req" value="${pageContext.request}" />
+<c:set var="url">${req.requestURL}</c:set>
+<c:set var="uri" value="${req.requestURI}" />
 <!DOCTYPE html>
 <html>
 <head>
+<base href="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Issue Tracker - Customer Home</title>
 <link rel="stylesheet" href="resources/css/style.css">

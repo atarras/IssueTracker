@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<c:set var="req" value="${pageContext.request}" />
+<c:set var="url">${req.requestURL}</c:set>
+<c:set var="uri" value="${req.requestURI}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<base href="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Issue Tracker - Login</title>
 <link rel="stylesheet" href="resources/css/style.css">
@@ -13,7 +19,7 @@
 
 	<center>
 		<div style="margin-top: 3%"></div>
-		<font size="8"> Welcome to IssueTracker! ${pageContext.request.contextPath} </font>
+		<font size="8"> Welcome to IssueTracker!</font>
 		<div style="margin-top: 3%"></div>
 	</center>
 
